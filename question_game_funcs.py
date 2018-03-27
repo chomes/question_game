@@ -152,6 +152,24 @@ def partial_topics_menu(question_list):
         print(topics)
 
 
+def movie_questions():
+    correct = []
+    incorrect = []
+    q1 = input(""" What is the first movie released in the Marvel Cinematic Universe?  Is it:
+    a) Iron Man
+    b) The Incredible Hulk
+    c) Thor
+    d) Captain America: The first Avenger""").lower()
+    if q1 == "a":
+        correct.append("1")
+        print("Correct! Next question")
+    else:
+        incorrect.append("1")
+        print("Wrong the answer was Iron Man!  Next question")
+
+
+
+
 # Running the question games
 def question_time(choose_topic):
     if choose_topic == "movies":
@@ -170,7 +188,7 @@ def game_selection(completed_topics):
     if not completed_topics:
         full_topics_menu(full_list)
         while True:
-            choose_topic = input("Please choose from the list of topics:")
+            choose_topic = input("Please choose from the list of topics:").lower()
             if choose_topic in full_list:
                 question_time(choose_topic)
                 break
@@ -190,7 +208,7 @@ def game_selection(completed_topics):
 
         partial_topics_menu(question_list)
         while True:
-            choose_topic = input("Please choose from the list of topics:")
+            choose_topic = input("Please choose from the list of topics:").lower()
             if choose_topic in question_list:
                 question_time(choose_topic)
                 break
