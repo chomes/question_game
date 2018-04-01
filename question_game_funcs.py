@@ -73,7 +73,7 @@ def game_over():
                                        ~~
 
     ''')
-
+    quit()
 
 # For answering all questions
 def peasant_victory():
@@ -88,8 +88,10 @@ def peasant_victory():
  (____).__|
   (___)__.|_____
     """)
+    quit()
 
 
+# For real winners
 def true_victory():
     print("""
     You pushed past the limits and you achieved victory, congratulations you've earned your victory!
@@ -138,6 +140,7 @@ def true_victory():
 
     
     """)
+    quit()
 
 
 # Just a quick menu for displaying the full list of topics
@@ -152,14 +155,14 @@ def partial_topics_menu(question_list):
         print(topics)
 
 
-def movie_questions():
+def movie_questions(completed_topics):
     correct = []
     incorrect = []
     q1 = input(""" What is the first movie released in the Marvel Cinematic Universe?  Is it:
-    a) Iron Man
-    b) The Incredible Hulk
-    c) Thor
-    d) Captain America: The first Avenger""").lower()
+    a Iron Man
+    b The Incredible Hulk
+    c Thor
+    d Captain America: The first Avenger""").lower()
     if q1 == "a":
         correct.append("1")
         print("Correct! Next question")
@@ -167,19 +170,140 @@ def movie_questions():
         incorrect.append("1")
         print("Wrong the answer was Iron Man!  Next question")
 
+    q2 = input(""" What film was the quote 'The greatest trick the Devil ever pulled, was to convince the world he didn't exist' from?
+    a Predator
+    b The Usual suspects
+    c The Devil's Advocate
+    d Constantine""").lower()
+    if q2 == 'b':
+        correct.append("2")
+        print("Correct! Next question")
+    else:
+        incorrect.append("2")
+        print("Wrong the answer was The Usual Suspects! Next question")
+
+    q3 = input(""" In Back to the Future, what does Doc Brown say when you hit 88 mph?
+    a It'll go back in time
+    b The flux capacity will create a hole allowing the car to move through time
+    c You're gonna see some serious shit! """).lower()
+    if q3 == "c":
+        correct.append("3")
+        print("Correct! Next question")
+    else:
+        incorrect.append("3")
+        print("Wrong! The answer was C)! Next question")
+
+    q4 = input("""Fill this sentence: The King will now have the strength of the ______ _____ stripped away
+    a Black Panther
+    b Thunder God
+    c Speed Force
+    d Reality Gem """).lower()
+    if q4 == "a":
+        correct.append("4")
+        print("Correct! Next question")
+    else:
+        incorrect.append("4")
+        print("Wrong the answer was Black Panther! Next question")
+
+    q5 = input("""In the rebooted planet of the apes who is the leader of the apes?
+    a Koba
+    b Ceaser
+    c Maurice
+    d Cornelia """).lower()
+    if q5 == "b":
+        correct.append("5")
+        print("Correct! Now lets see if you completed the section")
+    else:
+        incorrect.append("5")
+        print("Wrong the answer was Ceaser! Lets see if you won")
+
+    if len(correct) >= 3 and incorrect <3:
+        completed_topics.append("movies")
+        print("You won this round, sending you back to the main menu to continue")
+        game_selection(completed_topics)
+    else:
+        game_over()
+
+
+
+def games_questions(completed_topics):
+    correct = []
+    incorrect = []
+    q1 = input(""" Overall which console had the better Doom port?
+    a) SNES
+    b) Sega 32x""").lower()
+    if q1 == "a":
+        correct.append("1")
+        print("Correct! Next question")
+    else:
+        incorrect.append("1")
+        print("Wrong the answer was SNES!  It had more levels and the soundtrack was superior compared to 32X")
+
+    q2 = input(""" What was the first pokemon games to come out on gameboy?
+    a red & blue
+    b yellow & green
+    c gold & silver""").lower()
+    if q2 == 'b':
+        correct.append("2")
+        print("Correct! Next question")
+    else:
+        incorrect.append("2")
+        print("Wrong the answer was Red & Blue! Next question")
+
+    q3 = input(""" What version of Street Fighter introduced the parry system?
+    a SF2
+    b SF3
+    c SF Alpha 3 """).lower()
+    if q3 == "c":
+        correct.append("3")
+        print("Correct! Next question")
+    else:
+        incorrect.append("3")
+        print("Wrong the answer was SF3! Next question")
+
+    q4 = input(""" 
+    a) Black Panther
+    b) Thunder God
+    c) Speed Force
+    d) Reality Gem """).lower()
+    if q4 == "a":
+        correct.append("4")
+        print("Correct! Next question")
+    else:
+        incorrect.append("4")
+        print("Wrong the answer was Black Panther! Next question")
+
+    q5 = input("""In the rebooted planet of the apes who is the leader of the apes?
+    a Koba
+    b Ceaser
+    c Maurice
+    d Cornelia """).lower()
+    if q5 == "b":
+        correct.append("5")
+        print("Correct! Now lets see if you completed the section")
+    else:
+        incorrect.append("5")
+        print("Wrong the answer was Ceaser! Lets see if you won")
+
+    if len(correct) >= 3 and incorrect < 3:
+        completed_topics.append("movies")
+        print("You won this round, sending you back to the main menu to continue")
+        game_selection(completed_topics)
+    else:
+        game_over()
 
 
 
 # Running the question games
-def question_time(choose_topic):
+def question_time(choose_topic, completed_topics):
     if choose_topic == "movies":
-        movie_questions()
+        movie_questions(completed_topics)
     elif choose_topic == "music":
-        music_questions()
+        music_questions(completed_topics)
     elif choose_topic == "games":
-        games_questions()
+        games_questions(completed_topics)
     elif choose_topic == "comics"
-        comic_questions()
+        comic_questions(completed_topics)
 
 
 # Game selection time
@@ -190,7 +314,7 @@ def game_selection(completed_topics):
         while True:
             choose_topic = input("Please choose from the list of topics:").lower()
             if choose_topic in full_list:
-                question_time(choose_topic)
+                question_time(choose_topic, completed_topics)
                 break
             else:
                 print("That topic is not in the listed, here is the list please try again")
@@ -210,7 +334,7 @@ def game_selection(completed_topics):
         while True:
             choose_topic = input("Please choose from the list of topics:").lower()
             if choose_topic in question_list:
-                question_time(choose_topic)
+                question_time(choose_topic, completed_topics)
                 break
             else:
                 print("That topic is not in the listed, here is the list please try again")
