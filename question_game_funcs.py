@@ -159,10 +159,10 @@ def movie_questions(completed_topics):
     correct = []
     incorrect = []
     q1 = input(""" What is the first movie released in the Marvel Cinematic Universe?  Is it:
-    a Iron Man
-    b The Incredible Hulk
-    c Thor
-    d Captain America: The first Avenger""").lower()
+    a) Iron Man
+    b) The Incredible Hulk
+    c) Thor
+    d) Captain America: The first Avenger""").lower()
     if q1 == "a":
         correct.append("1")
         print("Correct! Next question")
@@ -171,10 +171,10 @@ def movie_questions(completed_topics):
         print("Wrong the answer was Iron Man!  Next question")
 
     q2 = input(""" What film was the quote 'The greatest trick the Devil ever pulled, was to convince the world he didn't exist' from?
-    a Predator
-    b The Usual suspects
-    c The Devil's Advocate
-    d Constantine""").lower()
+    a) Predator
+    b) The Usual suspects
+    c) The Devil's Advocate
+    d) Constantine""").lower()
     if q2 == 'b':
         correct.append("2")
         print("Correct! Next question")
@@ -183,9 +183,9 @@ def movie_questions(completed_topics):
         print("Wrong the answer was The Usual Suspects! Next question")
 
     q3 = input(""" In Back to the Future, what does Doc Brown say when you hit 88 mph?
-    a It'll go back in time
-    b The flux capacity will create a hole allowing the car to move through time
-    c You're gonna see some serious shit! """).lower()
+    a) It'll go back in time
+    b) The flux capacity will create a hole allowing the car to move through time
+    c) You're gonna see some serious shit! """).lower()
     if q3 == "c":
         correct.append("3")
         print("Correct! Next question")
@@ -194,10 +194,10 @@ def movie_questions(completed_topics):
         print("Wrong! The answer was C)! Next question")
 
     q4 = input("""Fill this sentence: The King will now have the strength of the ______ _____ stripped away
-    a Black Panther
-    b Thunder God
-    c Speed Force
-    d Reality Gem """).lower()
+    a) Black Panther
+    b) Thunder God
+    c) Speed Force
+    d) Reality Gem """).lower()
     if q4 == "a":
         correct.append("4")
         print("Correct! Next question")
@@ -206,10 +206,10 @@ def movie_questions(completed_topics):
         print("Wrong the answer was Black Panther! Next question")
 
     q5 = input("""In the rebooted planet of the apes who is the leader of the apes?
-    a Koba
-    b Ceaser
-    c Maurice
-    d Cornelia """).lower()
+    a) Koba
+    b) Ceaser
+    c) Maurice
+    d) Cornelia """).lower()
     if q5 == "b":
         correct.append("5")
         print("Correct! Now lets see if you completed the section")
@@ -240,9 +240,9 @@ def games_questions(completed_topics):
         print("Wrong the answer was SNES!  It had more levels and the soundtrack was superior compared to 32X")
 
     q2 = input(""" What was the first pokemon games to come out on gameboy?
-    a red & blue
-    b yellow & green
-    c gold & silver""").lower()
+    a) red & blue
+    b) yellow & green
+    c) gold & silver""").lower()
     if q2 == 'b':
         correct.append("2")
         print("Correct! Next question")
@@ -251,9 +251,9 @@ def games_questions(completed_topics):
         print("Wrong the answer was Red & Blue! Next question")
 
     q3 = input(""" What version of Street Fighter introduced the parry system?
-    a SF2
-    b SF3
-    c SF Alpha 3 """).lower()
+    a) SF2
+    b) SF3
+    c) SF Alpha 3 """).lower()
     if q3 == "c":
         correct.append("3")
         print("Correct! Next question")
@@ -274,10 +274,10 @@ def games_questions(completed_topics):
         print("Wrong the answer was Black Panther! Next question")
 
     q5 = input("""In the rebooted planet of the apes who is the leader of the apes?
-    a Koba
-    b Ceaser
-    c Maurice
-    d Cornelia """).lower()
+    a) Koba
+    b) Ceaser
+    c) Maurice
+    d) Cornelia """).lower()
     if q5 == "b":
         correct.append("5")
         print("Correct! Now lets see if you completed the section")
@@ -286,12 +286,79 @@ def games_questions(completed_topics):
         print("Wrong the answer was Ceaser! Lets see if you won")
 
     if len(correct) >= 3 and incorrect < 3:
-        completed_topics.append("movies")
+        completed_topics.append("games")
         print("You won this round, sending you back to the main menu to continue")
         game_selection(completed_topics)
     else:
         game_over()
 
+def music_questions(completed_topics):
+    correct = []
+    incorrect = []
+    q1 = input(""" Which music artist starred in the Labrynth?
+    a) David Bowie
+    b) Bono
+    c) Elton John
+    d) Phil Collins""").lower()
+    if q1 == "a":
+        correct.append("1")
+        print("Correct! Next question")
+    else:
+        incorrect.append("1")
+        print("Wrong the answer was David Bowie!  It had more levels and the soundtrack was superior compared to 32X")
+
+    q2 = input(""" Who created the song "Stairway to Heaven" ?
+    a) Eric Clapton
+    b) Jimi Hendrix
+    c) Led Zeppelin""").lower()
+    if q2 == 'a':
+        correct.append("2")
+        print("Correct! Next question")
+    else:
+        incorrect.append("2")
+        print("Wrong the answer was Led Zeppelin! Next question")
+
+    q3 = input(""" Who created the song: "Can't touch this!" ?
+    a) Grandmaster Flash
+    b) MC Hammer
+    c) LL Cool J """).lower()
+    if q3 == "b":
+        correct.append("3")
+        print("Correct! Next question")
+    else:
+        incorrect.append("3")
+        print("Wrong the answer was MC Hammer! Next question")
+
+    q4 = input(""" Who was the female rapper on the song No Limit
+    a) Nicki Minaj
+    b) Lil Kim
+    c) Kodie Shane
+    d) Cardi B """).lower()
+    if q4 == "d":
+        correct.append("4")
+        print("Correct! Next question")
+    else:
+        incorrect.append("4")
+        print("Wrong the answer was Cardi B! Next question")
+
+    q5 = input("""Who was the Iconic pop star that had the lyrics "And there's choice that we make, And this choice you will take"
+    a) The Temptations
+    b) Marvin Gaye
+    c) Michael Jackson
+    d) Diana Ross """).lower()
+    if q5 == "b":
+        correct.append("5")
+        print("Correct! Now lets see if you completed the section")
+    else:
+        incorrect.append("5")
+        print("Wrong the answer was MJ from the song: Leave me Alone! Lets see if you won")
+
+    if len(correct) >= 3 and incorrect < 3:
+        completed_topics.append("games")
+        print("You won this round, sending you back to the main menu to continue")
+        game_selection(completed_topics)
+    else:
+        game_over()
 
 
 # Running the question games
